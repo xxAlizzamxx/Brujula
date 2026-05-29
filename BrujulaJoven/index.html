@@ -20,13 +20,18 @@
 
   /* Header */
   header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--azul)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--azul);cursor:pointer;flex:none}
   .logo .pin{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--turquesa),var(--azul2));display:flex;align-items:center;justify-content:center;font-size:18px}
-  .nav-links{display:flex;gap:8px}
-  .nav-links button{background:transparent;color:var(--gris);font-weight:600;padding:8px 14px;border-radius:8px;font-size:14px}
-  .nav-links button:hover{background:var(--bg);color:var(--azul)}
-  .nav-links button.active{background:var(--turquesa);color:#fff}
+  .nav-links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+  .nav-links button.navbtn{background:transparent;color:var(--gris);font-weight:600;padding:8px 13px;border-radius:8px;font-size:14px}
+  .nav-links button.navbtn:hover{background:var(--bg);color:var(--azul)}
+  .nav-links button.navbtn.active{background:var(--turquesa);color:#fff}
+  .user-chip{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--linea);border-radius:99px;padding:4px 6px 4px 4px;font-size:13px;font-weight:700;color:var(--azul)}
+  .avatar{width:30px;height:30px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,var(--turquesa),var(--azul2));color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none}
+  .btn-logout{background:transparent;color:var(--coral-d);font-weight:700;font-size:13px;padding:6px 10px;border-radius:8px}
+  .btn-logout:hover{background:#FFECEA}
+  .role-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:99px;background:var(--sol);color:var(--azul)}
 
   /* Hero */
   .hero{background:linear-gradient(135deg,#0FB5BA 0%,#1E5C9E 60%,#123A66 100%);color:#fff;padding:48px 0 72px;position:relative;overflow:hidden}
@@ -57,6 +62,31 @@
   .pcard .ic{font-size:26px}
   .pcard h3{margin:10px 0 6px;color:var(--azul);font-size:18px}
   .pcard p{color:var(--gris);font-size:14px}
+
+  /* ===== LOGIN ===== */
+  .login-card{background:#fff;border-radius:24px;box-shadow:var(--sombra);border:1px solid var(--linea);max-width:460px;margin:0 auto;overflow:hidden}
+  .login-top{background:linear-gradient(135deg,var(--turquesa),var(--azul2));padding:30px 30px 24px;color:#fff;text-align:center}
+  .login-top .pin{width:54px;height:54px;border-radius:16px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px}
+  .login-top h2{font-size:23px;font-weight:800}
+  .login-top p{opacity:.92;font-size:14px;margin-top:4px}
+  .login-body{padding:26px 30px 32px}
+  .login-body>label{display:block;font-size:13px;font-weight:700;color:var(--azul);margin-bottom:10px;text-align:center}
+
+  /* role switch animado */
+  .role-switch{position:relative;display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border:1px solid var(--linea);border-radius:14px;padding:5px;margin-bottom:6px}
+  .role-slider{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(18,58,102,.14);transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
+  .role-switch.inst .role-slider{transform:translateX(100%)}
+  .role-switch button{position:relative;z-index:2;background:transparent;padding:12px 8px;font-weight:700;font-size:14.5px;color:var(--gris);border-radius:10px;transition:color .25s;display:flex;align-items:center;justify-content:center;gap:7px}
+  .role-switch button.active{color:var(--azul)}
+  .role-desc{min-height:60px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--gris);font-size:14px;padding:14px 6px 18px;transition:opacity .25s}
+  .role-desc.fade{opacity:0}
+  .role-desc b{color:var(--azul)}
+
+  .gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:12px;background:#fff;border:1.5px solid var(--linea);border-radius:12px;padding:14px;font-size:15px;font-weight:700;color:#3c4043;transition:.15s}
+  .gbtn:hover{box-shadow:0 6px 18px rgba(18,58,102,.12);border-color:#cdd8e0;transform:translateY(-1px)}
+  .gbtn svg{width:20px;height:20px;flex:none}
+  .login-note{font-size:11.5px;color:var(--gris);text-align:center;margin-top:14px;line-height:1.5}
+  .login-note code{background:var(--bg);padding:1px 5px;border-radius:5px;font-size:11px}
 
   /* Quiz */
   .quiz-card{background:#fff;border-radius:22px;box-shadow:var(--sombra);border:1px solid var(--linea);max-width:680px;margin:0 auto;overflow:hidden}
@@ -101,6 +131,10 @@
   .filters button{background:#fff;border:1px solid var(--linea);color:var(--gris);font-weight:600;padding:8px 14px;border-radius:99px;font-size:13px}
   .filters button.active{background:var(--azul);color:#fff;border-color:var(--azul)}
 
+  .page-head{padding-top:30px}
+  .page-head h2{font-size:28px;color:var(--azul);font-weight:800}
+  .page-head p{color:var(--gris);margin-top:6px}
+
   .feed{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .card{background:#fff;border-radius:18px;border:1px solid var(--linea);box-shadow:var(--sombra);overflow:hidden;display:flex;flex-direction:column;transition:.15s}
   .card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(18,58,102,.16)}
@@ -111,6 +145,7 @@
   .b-empleo{background:#DCFCE7;color:#15803D}
   .b-evento{background:#FCE7F3;color:#BE185D}
   .b-mesa{background:#EDE9FE;color:#6D28D9}
+  .b-new{background:var(--sol);color:var(--azul)}
   .match{display:flex;align-items:center;gap:6px;font-weight:800;font-size:15px;color:var(--turquesa-d)}
   .match .ring{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:conic-gradient(var(--turquesa) var(--p),#E2EBF1 0)}
   .match .ring span{width:28px;height:28px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--turquesa-d);font-weight:800}
@@ -122,9 +157,22 @@
   .btn-sm{flex:1;padding:11px;border-radius:10px;font-weight:700;font-size:14px;text-align:center}
   .btn-apply{background:var(--turquesa);color:#fff}
   .btn-apply:hover{background:var(--turquesa-d)}
+  .btn-apply:disabled{background:#BFE9EA;cursor:default}
   .btn-info{background:var(--bg);color:var(--azul);border:1px solid var(--linea)}
   .why{margin:0 20px 14px;background:#FFF8E6;border:1px solid #FCE9B8;border-radius:10px;padding:10px 12px;font-size:12.5px;color:#8A6D1F}
   .why b{color:#7A5E12}
+
+  .empty{text-align:center;padding:60px 20px;color:var(--gris)}
+  .empty .em{font-size:46px}
+  .empty h3{color:var(--azul);margin:12px 0 6px;font-size:20px}
+
+  /* historial */
+  .hist-item{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--linea);border-radius:14px;padding:14px 18px;box-shadow:var(--sombra);margin-bottom:12px}
+  .hist-item .ic{width:42px;height:42px;border-radius:11px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+  .hist-item .info{flex:1}
+  .hist-item .info b{color:var(--tinta)}
+  .hist-item .info div{font-size:13px;color:var(--gris)}
+  .hist-item .st{font-size:12px;font-weight:800;color:var(--ok);background:#E7F8EF;padding:5px 10px;border-radius:99px}
 
   /* Modal */
   .overlay{position:fixed;inset:0;background:rgba(14,34,51,.55);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}
@@ -170,7 +218,7 @@
   @media(max-width:860px){
     .stats{grid-template-columns:repeat(2,1fr)}
     .problema,.feed,.inst-grid{grid-template-columns:1fr}
-    .hero h1{font-size:34px}.nav-links{display:none}
+    .hero h1{font-size:30px}
   }
 </style>
 </head>
@@ -178,13 +226,8 @@
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><span class="pin">🧭</span> Brújula Joven <span style="color:var(--turquesa);font-weight:700">Cartagena</span></div>
-    <div class="nav-links">
-      <button data-go="home" class="active">Inicio</button>
-      <button data-go="quiz">Hacer el test</button>
-      <button data-go="alert">Alerta WhatsApp</button>
-      <button data-go="inst">Panel institucional</button>
-    </div>
+    <div class="logo" id="logo"><span class="pin">🧭</span> Brújula Joven <span style="color:var(--turquesa);font-weight:700">Cartagena</span></div>
+    <div class="nav-links" id="nav-links"></div>
   </div>
 </header>
 
@@ -195,8 +238,8 @@
       <h1>El 87% de los jóvenes de Cartagena no participa. No por falta de oportunidades — porque la información está rota.</h1>
       <p class="sub">Brújula Joven centraliza todo y, con un test de 3 minutos, la IA te arma tu <b>ruta personalizada</b>: dónde participar, formarte, trabajar e incidir. Cerca de ti y en lenguaje claro.</p>
       <div class="cta">
-        <button class="btn btn-primary" data-go="quiz">🧭 Hacer el test de la Brújula</button>
-        <button class="btn btn-ghost" data-go="inst">Soy institución / organización</button>
+        <button class="btn btn-primary" id="cta-persona">🧭 Empezar como joven</button>
+        <button class="btn btn-ghost" id="cta-inst">🏛️ Soy institución / organización</button>
       </div>
     </div>
   </div>
@@ -217,6 +260,33 @@
       <div class="pcard"><div class="ic">🧩</div><h3>Información dispersa</h3><p>Convocatorias en mil canales, sin un solo lugar que diga qué, dónde, cuándo y cómo vincularse.</p></div>
       <div class="pcard"><div class="ic">🏛️</div><h3>Desconexión institucional</h3><p>Alcaldía, UTB, Fundación Mi Sangre, Escuela de Gobierno y 33 organizaciones operan aisladas y duplican esfuerzos.</p></div>
       <div class="pcard"><div class="ic">📉</div><h3>Baja articulación</h3><p>Solo el 6% llega a espacios oficiales. Quien no tiene "cercanía organizacional" queda fuera del mapa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOGIN ================= -->
+<section id="view-login" class="section hidden">
+  <div class="wrap">
+    <div class="login-card">
+      <div class="login-top">
+        <div class="pin">🧭</div>
+        <h2 id="login-title">Ingresa a Brújula Joven</h2>
+        <p>Crea tu cuenta o inicia sesión para empezar</p>
+      </div>
+      <div class="login-body">
+        <label>¿Cómo quieres ingresar?</label>
+        <div class="role-switch" id="roleSwitch">
+          <div class="role-slider"></div>
+          <button data-role="persona" class="active">🙋 Soy Persona</button>
+          <button data-role="institucion">🏛️ Soy Institución</button>
+        </div>
+        <div class="role-desc" id="roleDesc"></div>
+        <button class="gbtn" id="googleBtn">
+          <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          <span id="googleLabel">Continuar con Google</span>
+        </button>
+        <p class="login-note" id="loginNote"></p>
+      </div>
     </div>
   </div>
 </section>
@@ -250,7 +320,7 @@
   </div>
 </section>
 
-<!-- ================= RESULT (profile + feed) ================= -->
+<!-- ================= RESULT (perfil + recomendados) ================= -->
 <section id="view-result" class="section hidden">
   <div class="wrap">
     <div class="profile-hero">
@@ -273,9 +343,38 @@
     </div>
     <div class="feed" id="feed"></div>
     <div style="text-align:center;margin-top:34px">
-      <button class="btn btn-primary" data-go="alert">📲 Ver cómo te llega la alerta por WhatsApp</button>
-      <button class="btn btn-ghost" style="color:var(--azul);background:#fff;border-color:var(--linea)" data-go="quiz">Repetir test</button>
+      <button class="btn btn-primary" id="goAlert" style="color:var(--azul)">📲 Ver alerta WhatsApp</button>
+      <button class="btn btn-ghost" style="color:var(--azul);background:#fff;border:1px solid var(--linea)" id="reTest">🧭 Repetir test para aplicar</button>
     </div>
+  </div>
+</section>
+
+<!-- ================= EXPLORAR TODO ================= -->
+<section id="view-explore" class="section hidden">
+  <div class="wrap">
+    <div class="page-head">
+      <h2>📋 Explorar todas las oportunidades</h2>
+      <p>Todo lo disponible en Cartagena — sin necesidad de hacer el test.</p>
+    </div>
+    <div class="feed-head" style="margin-top:22px">
+      <div class="filters" id="ex-filters">
+        <button data-f="all" class="active">Todo</button>
+        <button data-f="conv">Convocatorias</button>
+        <button data-f="form">Formación</button>
+        <button data-f="empleo">Empleo</button>
+        <button data-f="evento">Eventos</button>
+        <button data-f="mesa">Incidencia</button>
+      </div>
+    </div>
+    <div class="feed" id="ex-feed"></div>
+  </div>
+</section>
+
+<!-- ================= HISTORIAL ================= -->
+<section id="view-history" class="section hidden">
+  <div class="wrap">
+    <div class="page-head"><h2>🕘 Mi historial</h2><p>Las oportunidades a las que te has inscrito.</p></div>
+    <div id="hist-list" style="margin-top:24px"></div>
   </div>
 </section>
 
@@ -300,8 +399,8 @@
 <!-- ================= INSTITUTIONAL PANEL ================= -->
 <section id="view-inst" class="section hidden">
   <div class="wrap">
-    <h2>Panel institucional · Secretaría de Participación</h2>
-    <p class="lead">Las organizaciones publican una vez y la convocatoria llega automáticamente al perfil correcto. Y por fin se mide el impacto real.</p>
+    <h2>Panel institucional</h2>
+    <p class="lead">Publica una vez y la convocatoria llega automáticamente al perfil correcto. Lo que publiques aparece al instante en <b>"Explorar"</b> de los jóvenes y en <b>"Mis publicaciones"</b>.</p>
     <div class="inst-grid" style="margin-top:28px">
       <div class="panel">
         <h3>📢 Publicar convocatoria</h3>
@@ -309,9 +408,13 @@
         <div class="field"><label>Tipo</label>
           <select id="i-tipo"><option value="conv">Convocatoria</option><option value="form">Formación</option><option value="empleo">Empleo</option><option value="evento">Evento</option><option value="mesa">Mesa de incidencia</option></select>
         </div>
-        <div class="field"><label>Localidad</label>
-          <select id="i-loc"><option>Localidad 1 · Histórica y del Caribe Norte</option><option>Localidad 2 · De la Virgen y Turística</option><option>Localidad 3 · Industrial y de la Bahía</option></select>
+        <div class="field"><label>Tema / enfoque (para el match con IA)</label>
+          <select id="i-tema"><option value="comunitario">Comunitario / social</option><option value="cultural">Cultural / artístico</option><option value="deportivo">Deportivo</option><option value="ambiental">Ambiental</option><option value="politico">Político / incidencia</option><option value="emprendimiento">Empleo / emprendimiento</option><option value="formacion">Formación / liderazgo</option></select>
         </div>
+        <div class="field"><label>Localidad</label>
+          <select id="i-loc"><option value="1">Localidad 1 · Histórica y del Caribe Norte</option><option value="2">Localidad 2 · De la Virgen y Turística</option><option value="3">Localidad 3 · Industrial y de la Bahía</option></select>
+        </div>
+        <div class="field"><label>Fecha / plazo</label><input id="i-fecha" placeholder="Ej: Cierra 30 jun" /></div>
         <div class="field"><label>Descripción</label><textarea id="i-desc" rows="3" placeholder="Pega aquí el texto, aunque sea denso…"></textarea></div>
         <button class="btn-next" style="width:100%" id="i-publish">✨ Publicar y distribuir con IA</button>
         <div id="i-result" class="why hidden" style="margin:16px 0 0"></div>
@@ -322,7 +425,7 @@
           <div class="kpibox"><div class="n" id="k1">12.480</div><div class="l">jóvenes alcanzados</div></div>
           <div class="kpibox"><div class="n" id="k2">3.190</div><div class="l">inscripciones</div></div>
           <div class="kpibox"><div class="n">25,6%</div><div class="l">conversión alerta→inscrito</div></div>
-          <div class="kpibox"><div class="n">214</div><div class="l">convocatorias centralizadas</div></div>
+          <div class="kpibox"><div class="n" id="k4">214</div><div class="l">convocatorias centralizadas</div></div>
         </div>
         <p style="font-weight:700;color:var(--azul);margin:6px 0 10px">Alcance por localidad (equidad territorial)</p>
         <div class="barlbl"><span>Localidad 1 · Histórica</span><span>4.620</span></div><div class="bar"><div style="width:78%"></div></div>
@@ -334,6 +437,22 @@
   </div>
 </section>
 
+<!-- ================= MIS PUBLICACIONES ================= -->
+<section id="view-instpubs" class="section hidden">
+  <div class="wrap">
+    <div class="page-head"><h2>📢 Mis publicaciones</h2><p>Convocatorias que has publicado y su alcance estimado.</p></div>
+    <div id="pubs-list" style="margin-top:24px"></div>
+  </div>
+</section>
+
+<!-- ================= INSCRITOS ================= -->
+<section id="view-inscritos" class="section hidden">
+  <div class="wrap">
+    <div class="page-head"><h2>👥 Inscritos a mis convocatorias</h2><p>Jóvenes que se han inscrito a las oportunidades que publicaste.</p></div>
+    <div id="inscritos-list" style="margin-top:24px"></div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <b>Brújula Joven Cartagena</b> — Prototipo Hackathon · 2026<br/>
@@ -341,20 +460,53 @@
   </div>
 </footer>
 
-<!-- Modal mount -->
 <div id="modal-mount"></div>
+
+<!-- Firebase (compat). Si no hay internet/config, la app usa modo demo automáticamente. -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
 <script>
 /* =========================================================
-   DATOS — sembrados con info real de Cartagena (Excel)
+   FIREBASE  —  PEGA AQUÍ TU CONFIG (consola Firebase > Configuración del proyecto)
+   Mientras esté vacío, la app funciona en MODO DEMO (login simulado).
+   ========================================================= */
+const FIREBASE_CONFIG = {
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  appId: ""
+};
+
+let fbAuth=null, fbProvider=null, FB_READY=false;
+(function initFirebase(){
+  try{
+    if(window.firebase && FIREBASE_CONFIG.apiKey){
+      firebase.initializeApp(FIREBASE_CONFIG);
+      fbAuth = firebase.auth();
+      fbProvider = new firebase.auth.GoogleAuthProvider();
+      FB_READY = true;
+    }
+  }catch(e){ console.warn("Firebase no inicializado, usando modo demo:", e.message); FB_READY=false; }
+})();
+
+/* =========================================================
+   PERSISTENCIA (localStorage)
+   ========================================================= */
+const LS={
+  get(k,d){ try{const v=JSON.parse(localStorage.getItem(k)); return v===null?d:v;}catch{return d;} },
+  set(k,v){ localStorage.setItem(k,JSON.stringify(v)); },
+  del(k){ localStorage.removeItem(k); }
+};
+
+/* =========================================================
+   DATOS BASE (sembrados con info real de Cartagena)
    ========================================================= */
 const LOCS = [
   "Localidad 1 · Histórica y del Caribe Norte",
   "Localidad 2 · De la Virgen y Turística",
   "Localidad 3 · Industrial y de la Bahía"
 ];
-
-// dimensiones de interés: comunitario, cultural, deportivo, ambiental, politico, emprendimiento, formacion
 const OPPS = [
   {id:1,tipo:"form",titulo:"Escuela de Liderazgo Comunitario UTB",org:"Universidad Tecnológica de Bolívar",loc:1,barrio:"Manga",fecha:"Cierra 6 jun",cupos:"40 cupos",tags:{comunitario:3,formacion:3,politico:2},desc:"Formación gratuita en liderazgo, gestión de proyectos y participación ciudadana para jóvenes."},
   {id:2,tipo:"mesa",titulo:"Inscripción Consejo de Juventud — Localidad 3",org:"Sec. de Participación Social",loc:3,barrio:"El Bosque",fecha:"Abierta",cupos:"Incidencia directa",tags:{politico:3,comunitario:3,formacion:1},desc:"Postúlate como consejero de juventud e incide en las decisiones de tu territorio."},
@@ -369,6 +521,7 @@ const OPPS = [
   {id:11,tipo:"conv",titulo:"Presupuesto Participativo Joven",org:"Alcaldía de Cartagena",loc:2,barrio:"Toda la localidad",fecha:"Vota hasta 12 jun",cupos:"Decide tú",tags:{politico:3,comunitario:3},desc:"Propón y vota en qué se invierte el presupuesto de tu localidad."},
   {id:12,tipo:"form",titulo:"Taller de Emprendimiento Social",org:"Cámara de Comercio + Mi Sangre",loc:1,barrio:"Bocagrande",fecha:"Inicia 18 jun",cupos:"35 cupos",tags:{emprendimiento:3,comunitario:2,formacion:2},desc:"Convierte tu idea en un negocio con impacto social. Incluye capital semilla."},
 ];
+function allOpps(){ return LS.get('bj_published',[]).concat(OPPS); }
 
 const QUESTIONS = [
   {key:"interes", q:"¿Qué es lo que más te mueve?", multi:true, hint:"Elige una o varias",
@@ -406,8 +559,6 @@ const QUESTIONS = [
      {em:"🚀",t:"Sí, ya soy activo/a",w:{politico:1,comunitario:1}},
    ]},
 ];
-
-/* Arquetipos de perfil segun dimension dominante */
 const ARCHETYPES = {
   comunitario:{name:"Líder Comunitario en Formación",desc:"Tu motor es la gente y tu barrio. Tienes madera de articular comunidad y resolver lo que a otros les duele. Te conectamos con espacios de liderazgo e incidencia local."},
   cultural:{name:"Gestor Cultural Joven",desc:"El arte y la cultura son tu lenguaje. Cartagena necesita tu talento visible. Te abrimos rutas de estímulos, festivales y redes culturales."},
@@ -417,24 +568,129 @@ const ARCHETYPES = {
   emprendimiento:{name:"Emprendedor con Propósito",desc:"Buscas generar ingresos y oportunidades. Te conectamos con empleo, bootcamps y capital semilla para tus ideas."},
   formacion:{name:"Joven en Ruta de Crecimiento",desc:"Tienes hambre de aprender y crecer. Te armamos un itinerario de formación y liderazgo paso a paso."},
 };
+const ROLE_DESC = {
+  persona:"Como <b>joven</b>: haces un test rápido y la IA te arma tu ruta de oportunidades, eventos y empleo cerca de ti.",
+  institucion:"Como <b>institución u organización</b>: publicas convocatorias que llegan al perfil correcto y mides tu impacto real."
+};
 
 /* =========================================================
-   ESTADO + LÓGICA
+   ESTADO
    ========================================================= */
-let state = { step:0, answers:{}, weights:{}, profile:null, loc:1, obj:"formacion", filter:"all", scored:[] };
+let user = LS.get('bj_user', null);
+let state = { step:0, answers:{}, weights:{}, profile:null, loc:1, obj:"formacion", filter:"all", exFilter:"all", scored:[] };
+let pendingRole = "persona";
+
+// recuperar perfil guardado
+(function restoreProfile(){
+  const p = LS.get('bj_profile', null);
+  if(p){ state.weights=p.weights; state.loc=p.loc; state.obj=p.obj; state.profile=p.profile; }
+})();
 
 const $ = s => document.querySelector(s);
-const views = ["home","quiz","loading","result","alert","inst"];
-function go(v){
+const views = ["home","login","quiz","loading","result","explore","history","alert","inst","instpubs","inscritos"];
+function show(v){
   views.forEach(x=> $("#view-"+x).classList.toggle("hidden", x!==v));
-  document.querySelectorAll(".nav-links button").forEach(b=>b.classList.toggle("active", b.dataset.go===v));
   window.scrollTo({top:0,behavior:"smooth"});
+  renderNav(v);
+}
+function go(v){
+  if(v==="result"){ if(!state.profile){ return go(user&&user.role==="persona"?"quiz":"login"); } renderResult(); }
+  if(v==="explore"){ renderExplore(); }
+  if(v==="history"){ renderHistory(); }
   if(v==="quiz"){ resetQuiz(); }
   if(v==="alert"){ renderAlert(); }
+  if(v==="instpubs"){ renderPubs(); }
+  if(v==="inscritos"){ renderInscritos(); }
+  show(v);
 }
-document.querySelectorAll("[data-go]").forEach(b=> b.onclick=()=>go(b.dataset.go));
 
-/* ---------- QUIZ ---------- */
+/* =========================================================
+   NAV dinámico según sesión/rol
+   ========================================================= */
+function avatarHtml(u){
+  if(u.photo) return `<img class="avatar" src="${u.photo}" alt="">`;
+  const ini=(u.name||"U").trim().charAt(0).toUpperCase();
+  return `<span class="avatar">${ini}</span>`;
+}
+function renderNav(active){
+  const el = $("#nav-links");
+  let links=[];
+  if(!user){
+    links=[["home","Inicio"],["login","Entrar"]];
+  } else if(user.role==="persona"){
+    links=[["result","🎯 Recomendados"],["quiz","🧭 Hacer test"],["explore","📋 Explorar"],["history","🕘 Mi historial"]];
+  } else {
+    links=[["inst","📢 Publicar"],["instpubs","📊 Mis publicaciones"],["inscritos","👥 Inscritos"],["explore","📋 Explorar"]];
+  }
+  let html = links.map(([v,t])=>`<button class="navbtn ${v===active?'active':''}" data-go="${v}">${t}</button>`).join("");
+  if(user){
+    html += `<span class="user-chip">${avatarHtml(user)} <span>${user.name}</span> <span class="role-tag">${user.role==='persona'?'Joven':'Institución'}</span></span>`;
+    html += `<button class="btn-logout" id="logoutBtn">Salir</button>`;
+  }
+  el.innerHTML = html;
+  el.querySelectorAll("[data-go]").forEach(b=> b.onclick=()=>go(b.dataset.go));
+  if($("#logoutBtn")) $("#logoutBtn").onclick = logout;
+}
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+function openLogin(role){ pendingRole=role||"persona"; renderRoleSwitch(); go("login"); }
+function renderRoleSwitch(){
+  const sw=$("#roleSwitch");
+  sw.classList.toggle("inst", pendingRole==="institucion");
+  sw.querySelectorAll("button").forEach(b=> b.classList.toggle("active", b.dataset.role===pendingRole));
+  const d=$("#roleDesc");
+  d.classList.add("fade");
+  setTimeout(()=>{ d.innerHTML=ROLE_DESC[pendingRole]; d.classList.remove("fade"); },180);
+  $("#login-title").textContent = pendingRole==="persona" ? "Ingresa como joven" : "Ingresa como institución";
+  $("#loginNote").innerHTML = FB_READY
+    ? "Usaremos tu cuenta de Google para guardar tu progreso de forma segura."
+    : "🧪 <b>Modo demo</b> activo (sin Firebase). Pega tu <code>FIREBASE_CONFIG</code> en el código para activar el login con Google real.";
+}
+$("#roleSwitch").querySelectorAll("button").forEach(b=>{
+  b.onclick=()=>{ pendingRole=b.dataset.role; renderRoleSwitch(); };
+});
+
+async function doGoogleLogin(){
+  let u=null;
+  if(FB_READY){
+    try{
+      const res = await fbAuth.signInWithPopup(fbProvider);
+      u = { name:res.user.displayName||"Usuario", email:res.user.email||"", photo:res.user.photoURL||"", role:pendingRole };
+    }catch(e){ console.warn("Fallo login Google, modo demo:", e.message); }
+  }
+  if(!u){ // modo demo
+    u = pendingRole==="persona"
+      ? { name:"Joven Demo", email:"joven.demo@cartagena.co", photo:"", role:"persona" }
+      : { name:"Organización Demo", email:"org.demo@cartagena.co", photo:"", role:"institucion" };
+  }
+  user=u; LS.set('bj_user',user);
+  afterLogin();
+}
+$("#googleBtn").onclick = doGoogleLogin;
+
+function afterLogin(){
+  renderNav();
+  if(user.role==="institucion"){ go("inst"); }
+  else { state.profile ? go("result") : go("quiz"); }
+}
+function logout(){
+  if(FB_READY){ try{ fbAuth.signOut(); }catch(e){} }
+  user=null; LS.del('bj_user');
+  go("home");
+}
+
+/* =========================================================
+   HOME CTAs
+   ========================================================= */
+$("#cta-persona").onclick = ()=>{ if(user&&user.role==="persona"){ state.profile?go("result"):go("quiz"); } else openLogin("persona"); };
+$("#cta-inst").onclick = ()=>{ if(user&&user.role==="institucion"){ go("inst"); } else openLogin("institucion"); };
+$("#logo").onclick = ()=> go("home");
+
+/* =========================================================
+   QUIZ
+   ========================================================= */
 function resetQuiz(){ state.step=0; state.answers={}; renderQuiz(); }
 function renderQuiz(){
   const q = QUESTIONS[state.step];
@@ -456,7 +712,6 @@ function renderQuiz(){
       <span class="hint">${q.hint||''}</span>
       <button class="btn-next" id="q-next" disabled>${state.step===QUESTIONS.length-1?'Ver mi perfil ✨':'Siguiente →'}</button>
     </div>`;
-  // bind options
   $("#quiz-body").querySelectorAll(".opt").forEach(btn=>{
     btn.onclick=()=>{
       const i = +btn.dataset.i;
@@ -478,8 +733,6 @@ function next(){
   if(state.step < QUESTIONS.length-1){ state.step++; renderQuiz(); }
   else { computeProfile(); }
 }
-
-/* ---------- PERFIL (la "IA") ---------- */
 function computeProfile(){
   const w = {comunitario:0,cultural:0,deportivo:0,ambiental:0,politico:0,emprendimiento:0,formacion:0};
   QUESTIONS.forEach((q,qi)=>{
@@ -495,14 +748,14 @@ function computeProfile(){
   state.weights=w;
   const dom = Object.entries(w).sort((a,b)=>b[1]-a[1])[0][0];
   state.profile = ARCHETYPES[dom] || ARCHETYPES.comunitario;
+  LS.set('bj_profile',{weights:w,loc:state.loc,obj:state.obj,profile:state.profile});
   runLoading();
 }
-
 function runLoading(){
-  go("loading");
+  show("loading");
   const steps=[
     "Leyendo tus intereses y objetivos…",
-    "Cruzando con 214 oportunidades activas en Cartagena…",
+    "Cruzando con las oportunidades activas en Cartagena…",
     `Priorizando lo que queda cerca de ${LOCS[state.loc-1].split('·')[0].trim()}…`,
     "Armando tu ruta personalizada ✨",
   ];
@@ -510,19 +763,18 @@ function runLoading(){
   const it=setInterval(()=>{
     i++;
     if(i<steps.length){ $("#ia-step").textContent=steps[i]; }
-    else { clearInterval(it); renderResult(); go("result"); }
+    else { clearInterval(it); go("result"); }
   },650);
 }
 
-/* score de afinidad perfil <-> oportunidad */
+/* =========================================================
+   SCORING + FEED
+   ========================================================= */
 function scoreOpp(o){
   let s=0, maxw=0;
   for(const k in o.tags){ s += (state.weights[k]||0)*o.tags[k]; maxw += 3*o.tags[k]; }
-  // normaliza a 0..1 sobre intereses
-  let base = maxw? s/(maxw):0;
-  // bonus cercanía
+  let base = maxw? s/maxw:0;
   const near = (o.loc===state.loc);
-  // bonus objetivo
   let objBonus=0;
   if(state.obj==="empleo" && o.tipo==="empleo") objBonus=.2;
   if(state.obj==="formacion" && o.tipo==="form") objBonus=.18;
@@ -532,19 +784,44 @@ function scoreOpp(o){
   pct = Math.max(38, Math.min(98, pct));
   return {pct, near};
 }
-
 const TIPO_LABEL={conv:["Convocatoria","b-conv"],form:["Formación","b-form"],empleo:["Empleo","b-empleo"],evento:["Evento","b-evento"],mesa:["Incidencia","b-mesa"]};
-
-function reasonFor(o,sc){
+function reasonFor(o){
   const topInt = Object.entries(state.weights).sort((a,b)=>b[1]-a[1])[0][0];
   const map={comunitario:"tu interés por tu comunidad",cultural:"tu perfil cultural",deportivo:"tu interés por el deporte",ambiental:"tu interés ambiental",politico:"tus ganas de incidir",emprendimiento:"tu enfoque emprendedor",formacion:"tu objetivo de formarte"};
   const bits=[];
   if(o.tags[topInt]) bits.push(map[topInt]);
-  if(sc.near) bits.push("queda en tu localidad");
+  if(o.loc===state.loc) bits.push("queda en tu localidad");
   if(state.obj==="empleo"&&o.tipo==="empleo") bits.push("buscas empleo");
   if(state.obj==="incidencia"&&o.tipo==="mesa") bits.push("quieres incidir");
   if(bits.length===0) bits.push("encaja con tu perfil");
   return `<b>Por qué para ti:</b> ${bits.slice(0,2).join(" y ")}.`;
+}
+function isApplied(id){ return LS.get('bj_history',[]).some(h=>h.id===id); }
+function cardHtml(o, withMatch){
+  const [lbl,cls]=TIPO_LABEL[o.tipo];
+  const sc = withMatch? scoreOpp(o):null;
+  const newBadge = o.id && (''+o.id).startsWith('p') ? `<span class="badge b-new">Nuevo</span>` : '';
+  const applied = isApplied(o.id);
+  return `<div class="card">
+    <div class="card-top">
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge ${cls}">${lbl}</span>${newBadge}</div>
+      ${withMatch?`<div class="match"><span class="ring" style="--p:${sc.pct}%"><span>${sc.pct}%</span></span> match</div>`:''}
+    </div>
+    <h4>${o.titulo}</h4>
+    <div class="org">${o.org}</div>
+    ${withMatch?`<div class="why">${reasonFor(o)}</div>`:''}
+    <div class="meta">
+      <span>📍 ${o.barrio||LOCS[o.loc-1].split('·')[0].trim()}</span><span>🗓️ ${o.fecha}</span><span>🎟️ ${o.cupos}</span>
+    </div>
+    <div class="card-foot">
+      <button class="btn-sm btn-apply" data-apply="${o.id}" ${applied?'disabled':''}>${applied?'✓ Inscrito':'Inscribirme'}</button>
+      <button class="btn-sm btn-info" data-info="${o.id}">Detalles</button>
+    </div>
+  </div>`;
+}
+function bindCards(container){
+  container.querySelectorAll("[data-apply]").forEach(b=>{ if(!b.disabled) b.onclick=()=>openModal(b.dataset.apply,true); });
+  container.querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>openModal(b.dataset.info,false));
 }
 
 function renderResult(){
@@ -554,33 +831,13 @@ function renderResult(){
   const tags = Object.entries(state.weights).filter(([k,v])=>v>0).sort((a,b)=>b[1]-a[1]).slice(0,4)
     .map(([k])=>`<span class="tag">${k.charAt(0).toUpperCase()+k.slice(1)}</span>`).join("");
   $("#prof-tags").innerHTML = tags;
-  state.scored = OPPS.map(o=>({o,sc:scoreOpp(o)})).sort((a,b)=>b.sc.pct-a.sc.pct);
+  state.scored = allOpps().map(o=>({o,sc:scoreOpp(o)})).sort((a,b)=>b.sc.pct-a.sc.pct);
   renderFeed();
 }
-
 function renderFeed(){
   const list = state.scored.filter(x=> state.filter==="all" || x.o.tipo===state.filter);
-  $("#feed").innerHTML = list.map(({o,sc})=>{
-    const [lbl,cls]=TIPO_LABEL[o.tipo];
-    return `<div class="card">
-      <div class="card-top">
-        <span class="badge ${cls}">${lbl}</span>
-        <div class="match"><span class="ring" style="--p:${sc.pct}%"><span>${sc.pct}%</span></span> match</div>
-      </div>
-      <h4>${o.titulo}</h4>
-      <div class="org">${o.org}</div>
-      <div class="why">${reasonFor(o,sc)}</div>
-      <div class="meta">
-        <span>📍 ${o.barrio}</span><span>🗓️ ${o.fecha}</span><span>🎟️ ${o.cupos}</span>
-      </div>
-      <div class="card-foot">
-        <button class="btn-sm btn-apply" data-apply="${o.id}">Inscribirme</button>
-        <button class="btn-sm btn-info" data-info="${o.id}">Detalles</button>
-      </div>
-    </div>`;
-  }).join("");
-  $("#feed").querySelectorAll("[data-apply]").forEach(b=>b.onclick=()=>openModal(+b.dataset.apply,true));
-  $("#feed").querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>openModal(+b.dataset.info,false));
+  $("#feed").innerHTML = list.map(({o})=>cardHtml(o,true)).join("");
+  bindCards($("#feed"));
 }
 $("#filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{
   state.filter=b.dataset.f;
@@ -588,21 +845,70 @@ $("#filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{
   renderFeed();
 });
 
-/* ---------- MODAL ---------- */
+/* EXPLORAR (sin test) */
+function renderExplore(){
+  const list = allOpps().filter(o=> state.exFilter==="all" || o.tipo===state.exFilter);
+  $("#ex-feed").innerHTML = list.map(o=>cardHtml(o,false)).join("");
+  bindCards($("#ex-feed"));
+}
+$("#ex-filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  state.exFilter=b.dataset.f;
+  $("#ex-filters").querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));
+  renderExplore();
+});
+
+/* HISTORIAL */
+function renderHistory(){
+  const h = LS.get('bj_history',[]);
+  if(!h.length){
+    $("#hist-list").innerHTML = `<div class="empty"><div class="em">🕘</div><h3>Aún no te has inscrito a nada</h3><p>Cuando te inscribas a una oportunidad, aparecerá aquí.</p><button class="btn btn-primary" style="margin-top:18px;color:var(--azul)" onclick="go('explore')">Explorar oportunidades</button></div>`;
+    return;
+  }
+  $("#hist-list").innerHTML = h.map(it=>`
+    <div class="hist-item">
+      <div class="ic">${it.icon||'🎯'}</div>
+      <div class="info"><b>${it.title}</b><div>${it.org} · ${it.date}</div></div>
+      <span class="st">Inscrito</span>
+    </div>`).join("");
+}
+
+/* MODAL */
+function findOpp(id){ return allOpps().find(x=>(''+x.id)===(''+id)); }
 function openModal(id, apply){
-  const o = OPPS.find(x=>x.id===id);
-  const sc = scoreOpp(o);
+  const o = findOpp(id); if(!o) return;
   const [lbl,cls]=TIPO_LABEL[o.tipo];
+  if(apply){ // registrar en historial del joven + en inscripciones para la institución
+    const fecha = new Date().toLocaleDateString('es-CO',{day:'2-digit',month:'short',year:'numeric', hour:'2-digit',minute:'2-digit'});
+    const h=LS.get('bj_history',[]);
+    if(!h.some(x=>x.id===o.id)){
+      h.unshift({id:o.id,title:o.titulo,org:o.org,date:fecha});
+      LS.set('bj_history',h);
+    }
+    // guardar también para la institución
+    const ins=LS.get('bj_inscriptions',[]);
+    const ya=ins.some(x=>x.oppId===(''+o.id)&&x.userEmail===(user?user.email:'demo'));
+    if(!ya){
+      ins.unshift({
+        oppId:''+o.id, oppTitle:o.titulo, oppOrg:o.org, pubBy:o.pubBy||'',
+        userName: user?user.name:'Joven Demo',
+        userEmail: user?user.email:'joven.demo@cartagena.co',
+        perfil: state.profile?state.profile.name:'—',
+        loc: LOCS[state.loc-1]||'—',
+        date: fecha
+      });
+      LS.set('bj_inscriptions',ins);
+    }
+  }
   const body = apply ? `
       <p>✅ <b>¡Inscripción confirmada!</b> Le avisamos a <b>${o.org}</b> y te llegará un recordatorio por WhatsApp un día antes.</p>
       <div class="kv"><b>Oportunidad</b><span>${o.titulo}</span></div>
-      <div class="kv"><b>Dónde</b><span>${o.barrio} · ${LOCS[o.loc-1].split('·')[0].trim()}</span></div>
+      <div class="kv"><b>Dónde</b><span>${o.barrio||''} · ${LOCS[o.loc-1].split('·')[0].trim()}</span></div>
       <div class="kv"><b>Cuándo</b><span>${o.fecha}</span></div>
-      <p style="margin-top:14px;color:var(--turquesa-d);font-weight:700">🚀 Avanzaste un paso en tu ruta de incidencia.</p>
+      <p style="margin-top:14px;color:var(--turquesa-d);font-weight:700">🚀 Quedó guardado en tu historial.</p>
     `: `
-      <div class="kv"><b>Tipo</b><span>${lbl} · match ${sc.pct}%</span></div>
+      <div class="kv"><b>Tipo</b><span>${lbl}</span></div>
       <div class="kv"><b>Organiza</b><span>${o.org}</span></div>
-      <div class="kv"><b>Dónde</b><span>${o.barrio} · ${LOCS[o.loc-1].split('·')[0].trim()}</span></div>
+      <div class="kv"><b>Dónde</b><span>${o.barrio||''} · ${LOCS[o.loc-1].split('·')[0].trim()}</span></div>
       <div class="kv"><b>Cuándo</b><span>${o.fecha}</span></div>
       <div class="kv"><b>Cupos</b><span>${o.cupos}</span></div>
       <p style="margin-top:14px">${o.desc}</p>
@@ -619,31 +925,127 @@ function openModal(id, apply){
       </div>
     </div></div>`;
   $("#ov").onclick=e=>{ if(e.target.id==="ov") closeModal(); };
-  if($("#m-close")) $("#m-close").onclick=closeModal;
+  if($("#m-close")) $("#m-close").onclick=()=>{ closeModal(); refreshFeeds(); };
   const ap=$("#modal-mount").querySelector("[data-apply]"); if(ap) ap.onclick=()=>openModal(o.id,true);
 }
 function closeModal(){ $("#modal-mount").innerHTML=""; }
-
-/* ---------- WHATSAPP ---------- */
-function renderAlert(){
-  const top = state.scored && state.scored.length ? state.scored[0].o : OPPS[0];
-  const loc = LOCS[(top.loc)-1].split('·')[0].trim();
-  $("#wa-msg").innerHTML = `Hola 👋 Encontré algo para ti: <b>${top.titulo}</b> de ${top.org}.<br/>📍 ${top.barrio} (${loc}) · 🗓️ ${top.fecha}.<br/>Encaja con tu perfil. ¿Te inscribo? 😊<div class="t">10:23</div>`;
+function refreshFeeds(){
+  if(!$("#view-result").classList.contains("hidden")) renderFeed();
+  if(!$("#view-explore").classList.contains("hidden")) renderExplore();
+  if(!$("#view-history").classList.contains("hidden")) renderHistory();
 }
 
-/* ---------- PANEL INSTITUCIONAL ---------- */
+/* WHATSAPP */
+function renderAlert(){
+  const top = (state.scored && state.scored.length) ? state.scored[0].o : OPPS[0];
+  const loc = LOCS[(top.loc)-1].split('·')[0].trim();
+  $("#wa-msg").innerHTML = `Hola 👋 Encontré algo para ti: <b>${top.titulo}</b> de ${top.org}.<br/>📍 ${top.barrio||loc} (${loc}) · 🗓️ ${top.fecha}.<br/>Encaja con tu perfil. ¿Te inscribo? 😊<div class="t">10:23</div>`;
+}
+$("#goAlert").onclick = ()=>go("alert");
+$("#reTest").onclick = ()=>go("quiz");
+
+/* =========================================================
+   INSTITUCIÓN — publicar (se guarda y aparece en Explorar)
+   ========================================================= */
 $("#i-publish").onclick=()=>{
-  const t=$("#i-titulo").value.trim()||"Tu convocatoria";
-  const r=$("#i-result");
-  r.classList.remove("hidden");
+  const t=$("#i-titulo").value.trim();
+  if(!t){ alert("Escribe un título para la convocatoria."); return; }
+  const item={
+    id:'p'+Date.now(),
+    tipo:$("#i-tipo").value,
+    titulo:t,
+    org:(user?user.name:"Tu organización"),
+    pubBy:(user?user.email:""),
+    loc:parseInt($("#i-loc").value,10),
+    barrio:"",
+    fecha:$("#i-fecha").value.trim()||"Abierta",
+    cupos:"Cupos disponibles",
+    tags:{[$("#i-tema").value]:3},
+    desc:$("#i-desc").value.trim()||"Convocatoria publicada por la organización."
+  };
+  const pub=LS.get('bj_published',[]); pub.unshift(item); LS.set('bj_published',pub);
+
+  const r=$("#i-result"); r.classList.remove("hidden");
   r.innerHTML="⏳ La IA está clasificando y reescribiendo en lenguaje claro…";
   setTimeout(()=>{
     const n=Math.floor(900+Math.random()*1800);
-    r.innerHTML=`<b>✅ Publicada y distribuida.</b> La IA reescribió el texto en lenguaje claro y la envió a <b>${n.toLocaleString('es-CO')} jóvenes</b> con perfil afín en ${$("#i-loc").value.split('·')[0].trim()}. Recibirán alerta por app y WhatsApp.`;
+    item.alcance=n; LS.set('bj_published',pub);
+    r.innerHTML=`<b>✅ Publicada y distribuida.</b> La IA la reescribió en lenguaje claro y la envió a <b>${n.toLocaleString('es-CO')} jóvenes</b> con perfil afín en ${LOCS[item.loc-1].split('·')[0].trim()}. Ya aparece en <b>"Explorar"</b> y en <b>"Mis publicaciones"</b>.`;
     $("#k1").textContent=(12480+n).toLocaleString('es-CO');
-  },1200);
+    $("#k4").textContent=(214+pub.length);
+    // limpiar formulario
+    $("#i-titulo").value=""; $("#i-fecha").value=""; $("#i-desc").value="";
+  },1100);
 };
+function renderPubs(){
+  const pub=LS.get('bj_published',[]).filter(p=> !user || !user.email || p.pubBy===user.email || p.pubBy==="");
+  const ins=LS.get('bj_inscriptions',[]);
+  if(!pub.length){
+    $("#pubs-list").innerHTML=`<div class="empty"><div class="em">📢</div><h3>Aún no has publicado nada</h3><p>Crea tu primera convocatoria desde "Publicar".</p><button class="btn btn-primary" style="margin-top:18px;color:var(--azul)" onclick="go('inst')">Publicar convocatoria</button></div>`;
+    return;
+  }
+  $("#pubs-list").innerHTML = pub.map(p=>{
+    const [lbl,cls]=TIPO_LABEL[p.tipo];
+    const nIns = ins.filter(x=>x.oppOrg===p.org || x.oppId===(''+p.id)).length;
+    return `<div class="hist-item" style="cursor:pointer" onclick="go('inscritos')">
+      <div class="ic">📢</div>
+      <div class="info">
+        <b>${p.titulo}</b>
+        <div><span class="badge ${cls}" style="margin-right:6px">${lbl}</span>${LOCS[p.loc-1].split('·')[0].trim()} · ${p.fecha}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none">
+        <span class="st">${p.alcance?('📣 '+p.alcance.toLocaleString('es-CO')+' alcanzados'):'Publicada'}</span>
+        ${nIns?`<span style="font-size:12px;font-weight:800;color:var(--azul2);background:#EEF4FF;padding:4px 10px;border-radius:99px">👥 ${nIns} inscrito${nIns>1?'s':''}</span>`:''}
+      </div>
+    </div>`;
+  }).join("");
+}
 
+function renderInscritos(){
+  const ins=LS.get('bj_inscriptions',[]);
+  // mostramos todos los inscritos (en producción se filtraría por org; en demo/prototipo la institución ve todo)
+  const relevant=ins;
+  // agrupar por oportunidad
+  const groups={};
+  relevant.forEach(x=>{
+    if(!groups[x.oppId]) groups[x.oppId]={title:x.oppTitle,org:x.oppOrg,items:[]};
+    groups[x.oppId].items.push(x);
+  });
+  if(!relevant.length){
+    $("#inscritos-list").innerHTML=`<div class="empty"><div class="em">👥</div><h3>Aún no hay inscritos</h3><p>Cuando un joven se inscriba a una de tus convocatorias, aparecerá aquí en tiempo real.</p></div>`;
+    return;
+  }
+  $("#inscritos-list").innerHTML = Object.values(groups).map(g=>`
+    <div class="panel" style="margin-bottom:20px">
+      <h3 style="font-size:17px;margin-bottom:4px">📢 ${g.title}</h3>
+      <p style="font-size:13px;color:var(--gris);margin-bottom:16px">${g.org} · <b>${g.items.length} inscrito${g.items.length>1?'s':''}</b></p>
+      ${g.items.map(it=>`
+        <div class="hist-item" style="margin-bottom:10px">
+          <div class="ic" style="background:linear-gradient(135deg,var(--turquesa),var(--azul2));color:#fff">
+            ${it.userName.charAt(0).toUpperCase()}
+          </div>
+          <div class="info">
+            <b>${it.userName}</b>
+            <div>${it.userEmail}</div>
+            <div style="margin-top:3px;display:flex;gap:6px;flex-wrap:wrap">
+              <span style="font-size:11px;background:#E0F2FE;color:#0369A1;padding:2px 8px;border-radius:99px;font-weight:700">${it.perfil}</span>
+              <span style="font-size:11px;color:var(--gris)">${it.loc.split('·')[0].trim()}</span>
+            </div>
+          </div>
+          <div style="text-align:right;flex:none">
+            <div class="st">Inscrito</div>
+            <div style="font-size:11px;color:var(--gris);margin-top:4px">${it.date}</div>
+          </div>
+        </div>`).join("")}
+    </div>`).join("");
+}
+
+/* =========================================================
+   ARRANQUE
+   ========================================================= */
+window.go = go; // para botones inline
+renderRoleSwitch();
+renderNav();
 go("home");
 </script>
 </body>
