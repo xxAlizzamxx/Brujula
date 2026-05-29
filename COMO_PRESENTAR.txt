@@ -1,0 +1,47 @@
+=====================================================
+  BRÚJULA JOVEN CARTAGENA — Cómo presentar
+=====================================================
+
+CONTENIDO DE LA CARPETA
+-----------------------
+- BrujulaJoven\index.html   -> El prototipo (la app). ESTO es lo que muestras.
+- PRD_BrujulaJoven.md        -> El documento de producto (PRD) con el pitch y el guion.
+- COMO_PRESENTAR.txt         -> Este archivo.
+
+
+COMO ABRIR LA APP (lo más fácil y a prueba de fallos)
+-----------------------------------------------------
+1. Entra a la carpeta "BrujulaJoven".
+2. Doble clic en "index.html".
+3. Se abre en tu navegador. ¡Listo!
+
+* Funciona 100% SIN internet (todo va embebido). No depende del WiFi del evento.
+* Funciona en Chrome, Edge o cualquier navegador moderno.
+
+
+GUION DE LA DEMO (5 minutos)
+----------------------------
+1. GANCHO (pantalla de inicio): "El 87% de los jóvenes de Cartagena
+   no participa, y NO es por falta de oportunidades — la información
+   está rota." Señala las cifras: 245.653 jóvenes, 87%, 51%, 33 orgs.
+
+2. TEST EN VIVO: pídele a un JURADO que haga el "Test de la Brújula"
+   (botón amarillo). Son 5 preguntas, 1 minuto.
+
+3. MOMENTO WOW: aparece "la IA analizando..." y luego SU Perfil Joven
+   + SU feed personalizado con % de match y "por qué para ti",
+   ordenado por cercanía a su localidad.
+
+4. WHATSAPP: clic en "Ver cómo te llega la alerta por WhatsApp".
+   Muestra que la oportunidad #1 le llega sola al joven desconectado.
+
+5. CIERRE (Panel institucional): la Alcaldía publica una convocatoria,
+   la IA la reescribe y la distribuye, y POR FIN se mide el impacto
+   real (KPIs + equidad por localidad).
+
+   Frase de cierre: "Convertimos información invisible en
+   participación real. Y es replicable en toda Bolívar."
+
+
+TIP: practica el recorrido 1 vez antes de subir al escenario.
+=====================================================
